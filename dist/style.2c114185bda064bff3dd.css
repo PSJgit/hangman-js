@@ -552,10 +552,10 @@ button {
 
 .mobile-input {
   width: 300px;
-  margin: 50px auto;
+  margin: 10px auto;
   display: flex;
   justify-items: center;
-  height: 50px; }
+  height: 40px; }
 
 /* Media queries 
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -563,12 +563,10 @@ button {
   #grid {
     grid-template-rows: auto; }
   #hangman-container #words {
-    margin: 50px 0;
-    min-height: 50px; }
+    min-height: 70px; }
   #score {
     position: relative;
     grid-column: 4/9;
-    margin-top: 50px;
     text-align: center;
     width: auto;
     right: 10%; } }
@@ -586,4 +584,4 @@ button {
 */
 
 
-/*# sourceMappingURL=style.20f9441745fe741faf05.css.map*/
+/*# sourceMappingURL=style.2c114185bda064bff3dd.css.map*/

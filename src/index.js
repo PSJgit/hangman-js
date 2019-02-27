@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		inputLoaded = true
 		input = document.createElement('input')
 		input.setAttribute('type', 'text')
-		input.setAttribute('placeholder', 'Touch here to start')
+		input.setAttribute('placeholder', 'Add your guess here')
 		input.setAttribute('maxlength', '1')
 		input.setAttribute('class', 'mobile-input hide')
 		document.getElementById('hangman-container').appendChild(input)

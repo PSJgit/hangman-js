@@ -9,14 +9,12 @@
 
   #hangman-container {
     #words {
-      margin: 50px 0;
-      min-height: 50px;
+      min-height: 70px
     }
   }
   #score {
     position: relative;
     grid-column: 4/9;
-    margin-top: 50px;
     text-align: center;
     width: auto;
     right: 10%;
