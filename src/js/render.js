@@ -17,7 +17,7 @@ const init = [
 		score: '0',
 		buttons: [
 			{	
-				'id': 'Start Game'
+				'id': 'New Game'
 			},
 			{
 				'id': 'Difficulty',

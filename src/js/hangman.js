@@ -2,7 +2,9 @@
 /* Imports
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 import render from './render.js'
-import {animateHelper} from './utils.js'
+import {animateHelper, isMobileDevice} from './utils.js'
+
+
 
 /* Hangman game class
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -17,7 +19,7 @@ class Hangman {
 		this.difficulty = difficulty
 		this.attempts = this.calcAttempts()
 		this.maxAttempts = this.attempts
-		this.stateMsg = `You have <span class='bw-color-repeater'>${this.attempts}</span> attempts left. Press any letter key on your keyboard to get started`
+		this.stateMsg = `You have <span class='bw-color-repeater'>${this.attempts}</span> attempts left. ${!isMobileDevice() ? 'Press any letter key on your keyboard to get started' : ' '} `
 
 		// calls to render functions to init the game
 		render('newGame', this.word, this.stateMsg)
@@ -31,7 +33,7 @@ class Hangman {
 		this.gameCountRef = document.getElementById('games')
 		this.winCountRef = document.getElementById('wins')
 		this.playerLetter.innerHTML = ''
-		this.btns = document.querySelectorAll('#start-game, #difficulty')
+		this.btns = document.querySelectorAll('#new-game, #difficulty')
 
 		// show the score/game count
 		if (this.instance === 1) {
@@ -70,6 +72,10 @@ class Hangman {
 
 			// animate the title (non cached look up for .title)
 			animateHelper(document.querySelector('.title'), 'tada-end', false)
+			if (isMobileDevice()) {
+				document.querySelector('.mobile-input').classList.add('hide')
+			}
+
 			// bring back the game btns
 			this.btns.forEach( (el, index) => {
 				el.classList.remove('hide')

@@ -21,11 +21,6 @@ const difficultyArr = ['Easy', 'Normal', 'Hard', 'Insane']
 let input
 let inputLoaded = false
 
-/* Quick mobile detection
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-const isMobile = isMobileDevice()
-
 
 /* ON READY 
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -36,19 +31,22 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	render('init')
 	const loadingBar = document.getElementById('loading-bar')
 
-	if (isMobile && inputLoaded === false) {
-
+	if (isMobileDevice() && inputLoaded === false) {
+		inputLoaded = true
 		input = document.createElement('input')
 		input.setAttribute('type', 'text')
 		input.setAttribute('placeholder', 'Touch here to start')
+		input.setAttribute('maxlength', '1')
 		input.setAttribute('class', 'mobile-input hide')
 		document.getElementById('hangman-container').appendChild(input)
-		input.focus()
-
+		
 		document.querySelector('.mobile-input').addEventListener('input', (e) => {
 			if (activeGame !== undefined ) {
 				if (activeGame.state === 'playing') {
-					activeGame.checkValidKey(e.data)
+					activeGame.checkValidKey(document.querySelector('.mobile-input').value)
+					setTimeout(function() {
+						document.querySelector('.mobile-input').value = ''
+					}, 300);
 				}
 			}
 		})
@@ -74,8 +72,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		activeGame = new Hangman(word, difficulty)
 		// finish loadingBar animation
 		animateHelper(loadingBar, 'loading-bar-finish', true)
-		if (isMobile ) {
+		if (isMobileDevice() ) {
 			document.querySelector('.mobile-input').classList.remove('hide')
+			document.querySelector('.mobile-input').focus()
 		}
 	}
 
@@ -88,16 +87,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 	// On new game
-	document.querySelector('#start-game').addEventListener('click', (e) => {
+	document.querySelector('#new-game').addEventListener('click', (e) => {
 		// hide the button
 		e.target.classList.add('hide')
 		// and hide the other buttons too
 		document.getElementById('difficulty').classList.add('hide')
-		if (isMobile) {
-			document.querySelector('.mobile-input').classList.add('hide')
-			document.querySelector('.mobile-input').value = ''
-		}
-
 		loadGame()	
 
 	})
