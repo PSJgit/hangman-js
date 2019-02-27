@@ -6,7 +6,7 @@ A game of hangman, words are fetched from the wordnik api and set to high common
 
 ## Demo
 
-[Hangman](http://https://psjgit.github.io/Hangman-js/)
+[Hangman](https://psjgit.github.io/Hangman-js/)
 
 ## Built With
 
