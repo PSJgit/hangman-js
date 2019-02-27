@@ -1,0 +1,53 @@
+
+/* Font Declarations
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+       url('../fonts/opensans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'work_sansblack';
+    src: url('../fonts/worksans-black-webfont.woff2') format('woff2'),
+         url('../fonts/worksans-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Font sizing, Font family
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$titleFont : 'work_sansblack', 'arial';
+$bodyFont : 'open_sansregular', 'arial';
+
+$XL_min: 24px;
+$XL_max: 140px;
+
+$h1_min: 24px;
+$h1_max: 100px;
+
+// set on html, body, button
+$min_font: 16px;
+$max_font: 24px;
+
+/* Colors
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$bodyColor_primary: #F2B701;
+$bodyColor_secondary: #FECC2D;
+$bodyColor_tertiary: #FFF;
+
+$fontColor_primary: #FFF;
+$fontColor_secondary: #262628;
+
+/* Responsive 
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+$min_width: 320px;
+$max_width: 1280px;
+
+
