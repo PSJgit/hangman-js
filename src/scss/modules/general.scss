@@ -1,0 +1,143 @@
+
+/* General styling
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body {
+  background: $bodyColor_primary;
+}
+
+/* Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#root {
+  padding: 0 10px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 60vh;
+  grid-gap: 5px;
+  align-items: center;
+}
+
+/* Title
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#title-container  {
+  display: flex;
+  justify-content: space-around;
+  .title {
+    @supports (-webkit-background-clip: text) { 
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(to top, #000000 0%, #FFFFFF 0%, #FFFFFF 100%);
+    }
+    position: relative;
+    transition: 1s width ease-out;
+  }
+}
+
+/* Hangman game
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#hangman-container {
+  grid-column: 1/11;
+
+  .sub-title {
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+    font-weight: bold;
+  }
+  #words {
+    display: flex;
+    justify-items: center;
+    min-height: 250px;
+    .letter {
+      width: 100%;
+      &:first-child{
+        margin-left: 0;
+      }
+      &:last-child{
+        margin-right: 0;
+      }
+      @for $i from 1 through 10 {
+        &:nth-child( #{$i} ) {
+         animation-duration: #{$i * 0.12}s;
+        }
+      }
+      p {
+        font-family: $titleFont;
+        color: $bodyColor_tertiary;
+        text-transform: uppercase;
+        text-align: center;
+        @extend %XL-font;
+      }
+      .letter-placeholder {
+        position: relative;
+        zoom: 0.75;
+      }
+    }  
+  }
+
+  #attempts, #key-pressed {
+    text-align: center;
+    p {
+      @extend %background-txt-color;
+    }
+  }
+}
+#hangman-btns {
+  display: grid;
+  grid-column: 3/9;
+  justify-items: center;
+  button {
+    p {
+      font-family: $titleFont;
+    }
+  }
+}
+#score {
+  position: absolute;
+  bottom: 5%;
+  right: 2%;
+  width: 150px;
+  text-align: right;
+  p {
+    @extend %background-txt-color;
+  }
+}
+ 
+
+
+button {
+  display: block;
+  text-align: center;
+  border: 3px solid $bodyColor_tertiary;
+  text-transform: uppercase;
+  padding: 20px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+
+
+
+.hide {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+
+/* Mixin for responsive font sizing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+html, body, button {
+  @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
+/* General font styling
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $titleFont;
+  color: $fontColor_primary;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 20px 0;
+}
+
+// placeholder css for XL font - used with the hangman letters
+%XL-font {
+  @include fluid-type($min_width, $max_width, $XL_min, $XL_max);
+}
+
+h1 {
+  @include fluid-type($min_width, $max_width, $h1_min, $h1_max);
+}
+
+p {
+  color: $fontColor_primary;
+  font-family: $bodyFont;
+  line-height: 1.4;
+}
+
+// placeholder css for black bg, white txt with padding
+%background-txt-color {
+  display: inline;
+  box-decoration-break: clone;
+  background: $fontColor_secondary;
+  font-weight: bold;
+  padding: 8px;
+  line-height: 1.8;
+  color: $fontColor_primary;
+}
