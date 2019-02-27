@@ -59,7 +59,8 @@ module.exports = {
       inject: false,
       hash: true,
       template: './src/index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      favicon: './src/images/favicon-16x16.png'
     }),
     new WebpackMd5Hash()
   ],

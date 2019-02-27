@@ -10,7 +10,7 @@ import {animateHelper, shuffle} from './js/utils.js'
 import {clearGameContainer} from './js/render.js'
 
 // style
-import "./scss/index.scss";
+import "./scss/index.scss"
 
 /* Vars
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
