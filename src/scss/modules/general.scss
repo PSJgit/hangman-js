@@ -56,7 +56,7 @@ body {
   #words {
     display: flex;
     justify-items: center;
-    min-height: 250px;
+    min-height: 120px;
     .letter {
       width: 100%;
       &:first-child{
@@ -131,6 +131,9 @@ button {
   display: none;
 }
 
+.hidden {
+  opacity: 0;
+}
 
 
 

@@ -6,7 +6,7 @@ import render from './js/render.js'
 import Hangman from './js/hangman.js'
 import getRandomWord from './js/apiRequests.js'
 import wordlist from './js/wordSets.js'
-import {animateHelper, shuffle} from './js/utils.js'
+import {animateHelper, shuffle, isMobileDevice} from './js/utils.js'
 import {clearGameContainer} from './js/render.js'
 
 // style
@@ -19,6 +19,13 @@ let activeGame
 let difficulty = 1
 const difficultyArr = ['Easy', 'Normal', 'Hard', 'Insane']
 
+
+/* Quick mobile detection
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+const isMobile = isMobileDevice()
+
+
 /* ON READY 
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -28,8 +35,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	render('init')
 	const loadingBar = document.getElementById('loading-bar')
 
+
 	/* Game start up sequence
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 	const loadGame = async () => {
 
 		// show the loadingBar, css keyframe runs
@@ -38,26 +47,30 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 		// fetch the word from the api
 		let word = await getRandomWord()
-		if (word !== undefined) {
 
-			// start the game
-			activeGame = new Hangman(word, difficulty)
-			// finish loadingBar animation
-			animateHelper(loadingBar, 'loading-bar-finish', true)
-
-		} else {
-
+		if (word === undefined) {
 			// get a word from the back up word list
 			word = shuffle(wordlist[difficulty])
-			// start the game
-			activeGame = new Hangman(word, difficulty)
-			// finish loadingBar animation
-			animateHelper(loadingBar, 'loading-bar-finish', true)
-			
 		}
+		// start the game
+		activeGame = new Hangman(word, difficulty)
+		// finish loadingBar animation
+		animateHelper(loadingBar, 'loading-bar-finish', true)
 
-		console.log(activeGame)
+		if (isMobile) {
+
+			const input = document.createElement('input')
+			input.setAttribute('type', 'text')
+			input.classList.add('big-input')
+			document.getElementById('hangman-container').appendChild(input)
+			input.focus()
+		}
 	}
+
+//	git push origin --delete gh-pages
+
+//	git subtree push --prefix dist origin gh-pages
+
 
 	/* Events
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -82,12 +95,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	document.addEventListener('keyup', (e) => {
 		// if new game has started 
 		if (activeGame !== undefined ) {
-			console.log(activeGame)
 			// then check its play state
 			if (activeGame.state === 'playing') {
 				activeGame.checkValidKey(e.key)
 			}
 		}
 	})
+
 
 });
