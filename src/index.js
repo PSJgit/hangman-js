@@ -18,7 +18,8 @@ import "./scss/index.scss"
 let activeGame
 let difficulty = 1
 const difficultyArr = ['Easy', 'Normal', 'Hard', 'Insane']
-
+let input
+let inputLoaded = false
 
 /* Quick mobile detection
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -35,6 +36,23 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	render('init')
 	const loadingBar = document.getElementById('loading-bar')
 
+	if (isMobile && inputLoaded === false) {
+
+		input = document.createElement('input')
+		input.setAttribute('type', 'text')
+		input.setAttribute('placeholder', 'Touch here to start')
+		input.setAttribute('class', 'mobile-input hide')
+		document.getElementById('hangman-container').appendChild(input)
+		input.focus()
+
+		document.querySelector('.mobile-input').addEventListener('input', (e) => {
+			if (activeGame !== undefined ) {
+				if (activeGame.state === 'playing') {
+					activeGame.checkValidKey(e.data)
+				}
+			}
+		})
+	}
 
 	/* Game start up sequence
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -56,14 +74,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		activeGame = new Hangman(word, difficulty)
 		// finish loadingBar animation
 		animateHelper(loadingBar, 'loading-bar-finish', true)
-
-		if (isMobile) {
-
-			const input = document.createElement('input')
-			input.setAttribute('type', 'text')
-			input.classList.add('big-input')
-			document.getElementById('hangman-container').appendChild(input)
-			input.focus()
+		if (isMobile ) {
+			document.querySelector('.mobile-input').classList.remove('hide')
 		}
 	}
 
@@ -79,9 +91,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	document.querySelector('#start-game').addEventListener('click', (e) => {
 		// hide the button
 		e.target.classList.add('hide')
-		// and hide the other button too
+		// and hide the other buttons too
 		document.getElementById('difficulty').classList.add('hide')
+		if (isMobile) {
+			document.querySelector('.mobile-input').classList.add('hide')
+			document.querySelector('.mobile-input').value = ''
+		}
+
 		loadGame()	
+
 	})
 
 	// Update difficulty

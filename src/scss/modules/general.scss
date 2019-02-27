@@ -128,7 +128,7 @@ button {
 
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 .hidden {
@@ -144,3 +144,12 @@ button {
 
 
 
+/// mobile
+
+.mobile-input {
+  width: 300px;
+    margin: 50px auto;
+    display: flex;
+    justify-items: center;
+    height: 50px;
+}
