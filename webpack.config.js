@@ -60,7 +60,7 @@ module.exports = {
       hash: true,
       template: './src/index.html',
       filename: 'index.html',
-      favicon: './src/images/favicon-16x16.png'
+      favicon: './src/images/favicon-32x32.png'
     }),
     new WebpackMd5Hash()
   ],
