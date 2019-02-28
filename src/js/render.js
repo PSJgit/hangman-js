@@ -118,8 +118,8 @@ const createHTML = (data, i) => {
 				</div>
 
 				<div id='score' class='hide'>
-					<p>Games: <span id='games'>0</span></p> 
-					<p>Wins: <span id='wins'>0</span></p>
+					<p>Games: <span id='games'>0</span> Wins: <span id='wins'>0</span></p> 
+				
 				</div>
 			</div>
 		`
