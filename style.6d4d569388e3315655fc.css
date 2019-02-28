@@ -111,10 +111,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 24px; }
   @media screen and (min-width: 320px) {
     #hangman-container #words .letter p {
-      font-size: calc(24px + 116 * ((100vw - 320px) / 960)); } }
+      font-size: calc(24px + 104 * ((100vw - 320px) / 960)); } }
   @media screen and (min-width: 1280px) {
     #hangman-container #words .letter p {
-      font-size: 140px; } }
+      font-size: 128px; } }
 
 h1 {
   font-size: 24px; }
@@ -347,7 +347,7 @@ p {
             animation-fill-mode: forwards;
     -webkit-animation-direction: normal, alternate;
             animation-direction: normal, alternate;
-    background: #e8af01; }
+    background: black; }
 
 /* Base styling
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -538,7 +538,8 @@ body {
 button {
   display: block;
   text-align: center;
-  border: 3px solid #FFF;
+  background: #262628;
+  color: #FFF;
   text-transform: uppercase;
   padding: 20px;
   margin: 10px 0;
@@ -559,11 +560,13 @@ button {
     min-height: 70px; }
   #score {
     position: relative;
-    display: block;
+    display: flex;
+    justify-items: center;
     grid-column: 4/9;
     text-align: center;
     width: auto;
-    right: 10%; } }
+    margin-top: 10px;
+    right: initial; } }
 
 .mobile-input {
   width: 300px;
@@ -590,4 +593,4 @@ textarea {
 */
 
 
-/*# sourceMappingURL=style.bde79df764838588e626.css.map*/
+/*# sourceMappingURL=style.6d4d569388e3315655fc.css.map*/
