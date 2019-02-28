@@ -31,26 +31,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	render('init')
 	const loadingBar = document.getElementById('loading-bar')
 
-	if (isMobileDevice() && inputLoaded === false) {
-		inputLoaded = true
-		input = document.createElement('input')
-		input.setAttribute('type', 'text')
-		input.setAttribute('placeholder', 'Add your guess here')
-		input.setAttribute('maxlength', '1')
-		input.setAttribute('class', 'mobile-input hide')
-		document.getElementById('hangman-container').appendChild(input)
-		
-		document.querySelector('.mobile-input').addEventListener('input', (e) => {
-			if (activeGame !== undefined ) {
-				if (activeGame.state === 'playing') {
-					activeGame.checkValidKey(document.querySelector('.mobile-input').value)
-					setTimeout(function() {
-						document.querySelector('.mobile-input').value = ''
-					}, 300);
-				}
-			}
-		})
-	}
+	
 
 	/* Game start up sequence
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -74,7 +55,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		animateHelper(loadingBar, 'loading-bar-finish', true)
 		if (isMobileDevice() ) {
 			document.querySelector('.mobile-input').classList.remove('hide')
-			document.querySelector('.mobile-input').focus()
 		}
 	}
 
@@ -85,6 +65,38 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 	/* Events
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+	if (isMobileDevice() && inputLoaded === false) {
+		inputLoaded = true
+		input = document.createElement('input')
+		input.setAttribute('type', 'text')
+		input.setAttribute('placeholder', 'Add your guess here')
+		input.setAttribute('maxlength', '1')
+		input.setAttribute('class', 'mobile-input hide')
+		document.getElementById('hangman-container').appendChild(input)
+		
+		document.querySelector('.mobile-input').addEventListener('input', (e) => {
+			if (activeGame !== undefined ) {
+				if (activeGame.state === 'playing') {
+					activeGame.checkValidKey(e.target.value)
+					setTimeout(function() {
+						e.target.value = ''
+					}, 300);
+				}
+			}
+		})
+	} else {
+		// on Key up pass info to hangman 
+		document.addEventListener('keyup', (e) => {
+			// if new game has started 
+			if (activeGame !== undefined ) {
+				// then check its play state
+				if (activeGame.state === 'playing') {
+					activeGame.checkValidKey(e.key)
+				}
+			}
+		})
+	}
 
 	// On new game
 	document.querySelector('#new-game').addEventListener('click', (e) => {
@@ -102,17 +114,5 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		difficulty >= difficultyArr.length-1 ? difficulty = 0 : difficulty++
 		e.target.innerHTML = `<p>Difficulty: ${difficultyArr[difficulty]}</p>`
 	})
-
-	// on Key up pass info to hangman 
-	document.addEventListener('keyup', (e) => {
-		// if new game has started 
-		if (activeGame !== undefined ) {
-			// then check its play state
-			if (activeGame.state === 'playing') {
-				activeGame.checkValidKey(e.key)
-			}
-		}
-	})
-
 
 });
