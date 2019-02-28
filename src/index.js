@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	const loadingBar = document.getElementById('loading-bar')
 
 	
-
 	/* Game start up sequence
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -46,21 +45,18 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		let word = await getRandomWord()
 
 		if (word === undefined) {
-			// get a word from the back up word list
+			// get a word from the back up word lists
 			word = shuffle(wordlist[difficulty])
 		}
 		// start the game
 		activeGame = new Hangman(word, difficulty)
 		// finish loadingBar animation
 		animateHelper(loadingBar, 'loading-bar-finish', true)
+
 		if (isMobileDevice() ) {
 			document.querySelector('.mobile-input').classList.remove('hide')
 		}
 	}
-
-//	git push origin --delete gh-pages
-
-//	git subtree push --prefix dist origin gh-pages
 
 
 	/* Events
@@ -86,11 +82,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 			}
 		})
 	} else {
-		// on Key up pass info to hangman 
 		document.addEventListener('keyup', (e) => {
-			// if new game has started 
 			if (activeGame !== undefined ) {
-				// then check its play state
 				if (activeGame.state === 'playing') {
 					activeGame.checkValidKey(e.key)
 				}
@@ -100,9 +93,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 	// On new game
 	document.querySelector('#new-game').addEventListener('click', (e) => {
-		// hide the button
 		e.target.classList.add('hide')
-		// and hide the other buttons too
 		document.getElementById('difficulty').classList.add('hide')
 		loadGame()	
 
@@ -110,7 +101,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 	// Update difficulty
 	document.querySelector('#difficulty').addEventListener('click', (e) => {
-
 		difficulty >= difficultyArr.length-1 ? difficulty = 0 : difficulty++
 		e.target.innerHTML = `<p>Difficulty: ${difficultyArr[difficulty]}</p>`
 	})

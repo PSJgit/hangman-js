@@ -5,7 +5,6 @@ import render from './render.js'
 import {animateHelper, isMobileDevice} from './utils.js'
 
 
-
 /* Hangman game class
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -47,12 +46,9 @@ class Hangman {
 		const percent = 100 - (decimal * 100) 
 
 		this.titleHangman.style.backgroundImage = `linear-gradient(to top, #000000 ${percent}%, #FFFFFF 0%, #FFFFFF 100%)`
-		//console.log('animate title func = ', this.maxAttempts, this.attempts, decimal, percent)
 	}
 
 	gameState() {
-		//console.warn(this.state, 'and attempts left',this.attempts, '')
-
 		// set states and display state msg
 		if (this.score === this.letters.length) {
 			this.state = 'win'
@@ -75,25 +71,24 @@ class Hangman {
 			if (isMobileDevice()) {
 				document.querySelector('.mobile-input').classList.add('hide')
 			}
-
 			// bring back the game btns
 			this.btns.forEach( (el, index) => {
 				el.classList.remove('hide')
 			})
 			// clear out the user keypress dom indicator
 			this.playerLetter.innerHTML = ''
-			// use static instance to count and display the games
+			// use static instance to count and display the game count
 			this.gameCountRef.innerHTML = this.instance
 		}
 	}
 
 	// change attempts/guesses for the user via the difficulty
 	calcAttempts() {
-		let baseAttempts = 5
+		let baseAttempts = 6
 		let diffCalc = baseAttempts / this.difficulty
 
 		if (diffCalc === Infinity) {
-			diffCalc = 10
+			diffCalc = baseAttempts * 2
 		} else {
 			diffCalc = Math.ceil(diffCalc)
 		}
@@ -121,17 +116,14 @@ class Hangman {
 					this.score++
 				})
 			} else {
-				// incorrect, decrease count
 				this.attempts--
 				this.animateTitle()
 			}
-			// check state after keypress
 		}
 
 		this.gameState()
-		// update the attemps message
+		// update the attempts message
 		document.querySelector('#attempts > p').innerHTML = this.stateMsg
-		//console.log(this.userInput)
 	}
 
 	// checks if the keypress is a correct guess, returns obj with the html, keyCode and key
@@ -170,7 +162,7 @@ class Hangman {
 		return Hangman.instances
   }
 
-  	// same as above but for score
+  // same as above but for score
 	static score() {
 		Hangman.finalScore = (Hangman.finalScore || 0) + 1
 		return Hangman.finalScore

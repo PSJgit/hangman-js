@@ -112,20 +112,16 @@ body {
   }
 }
  
-
-
 button {
   display: block;
   text-align: center;
-  border: 3px solid $bodyColor_tertiary;
+  background: $fontColor_secondary;
+  color: $bodyColor_tertiary;
   text-transform: uppercase;
   padding: 20px;
   margin: 10px 0;
   cursor: pointer;
 }
-
-
-
 
 .hide {
   display: none !important;
