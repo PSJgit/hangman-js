@@ -28,7 +28,7 @@ const hangmanConfig = {
 
 If you don't want to get an API key, the game will run off some predefined word lists.
 
-## Commands:
+## Commands
 
 To install the project, run:
 
