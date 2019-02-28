@@ -29,7 +29,7 @@ const getRandomWord = async () => {
 			return data.word
 		} 
 	} catch (err) {
-		console.warn(err)
+		//console.warn(err)
 	}
 }
 
