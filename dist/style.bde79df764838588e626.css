@@ -550,13 +550,6 @@ button {
 .hidden {
   opacity: 0; }
 
-.mobile-input {
-  width: 300px;
-  margin: 10px auto;
-  display: flex;
-  justify-items: center;
-  height: 40px; }
-
 /* Media queries 
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media all and (max-width: 480px) {
@@ -566,10 +559,23 @@ button {
     min-height: 70px; }
   #score {
     position: relative;
+    display: block;
     grid-column: 4/9;
     text-align: center;
     width: auto;
     right: 10%; } }
+
+.mobile-input {
+  width: 300px;
+  margin: 10px auto;
+  display: flex;
+  justify-items: center;
+  height: 40px; }
+
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px; }
 
 /*  Boilerplate queries
   
@@ -584,4 +590,4 @@ button {
 */
 
 
-/*# sourceMappingURL=style.2c114185bda064bff3dd.css.map*/
+/*# sourceMappingURL=style.bde79df764838588e626.css.map*/

@@ -105,7 +105,7 @@ class Hangman {
 	checkValidKey(keypress) {
 		// only single/new letters go into ar, nothing else
 		if (!this.userInput.includes(keypress) && keypress.match(/[a-zA-Z]+/g) && keypress.length === 1 && this.state === 'playing') {
-			this.userInput.push(keypress.toLowerCase())
+			this.userInput.push(keypress[0].toLowerCase())
 			
 			// show to the player
 			this.playerLetter.innerHTML = `<p>Your guesses: ${this.userInput.join(', ').toUpperCase()}</p>`
