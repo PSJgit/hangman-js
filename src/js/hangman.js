@@ -2,7 +2,8 @@
 /* Imports
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 import render from './render.js'
-import {animateHelper} from './utils.js'
+import {animateHelper, isMobileDevice} from './utils.js'
+
 
 /* Hangman game class
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -17,7 +18,7 @@ class Hangman {
 		this.difficulty = difficulty
 		this.attempts = this.calcAttempts()
 		this.maxAttempts = this.attempts
-		this.stateMsg = `You have <span class='bw-color-repeater'>${this.attempts}</span> attempts left. Press any letter key on your keyboard to get started`
+		this.stateMsg = `You have <span class='bw-color-repeater'>${this.attempts}</span> attempts left. ${!isMobileDevice() ? 'Press any letter key on your keyboard to get started' : ' '} `
 
 		// calls to render functions to init the game
 		render('newGame', this.word, this.stateMsg)
@@ -31,7 +32,7 @@ class Hangman {
 		this.gameCountRef = document.getElementById('games')
 		this.winCountRef = document.getElementById('wins')
 		this.playerLetter.innerHTML = ''
-		this.btns = document.querySelectorAll('#start-game, #difficulty')
+		this.btns = document.querySelectorAll('#new-game, #difficulty')
 
 		// show the score/game count
 		if (this.instance === 1) {
@@ -45,12 +46,9 @@ class Hangman {
 		const percent = 100 - (decimal * 100) 
 
 		this.titleHangman.style.backgroundImage = `linear-gradient(to top, #000000 ${percent}%, #FFFFFF 0%, #FFFFFF 100%)`
-		//console.log('animate title func = ', this.maxAttempts, this.attempts, decimal, percent)
 	}
 
 	gameState() {
-		//console.warn(this.state, 'and attempts left',this.attempts, '')
-
 		// set states and display state msg
 		if (this.score === this.letters.length) {
 			this.state = 'win'
@@ -70,24 +68,27 @@ class Hangman {
 
 			// animate the title (non cached look up for .title)
 			animateHelper(document.querySelector('.title'), 'tada-end', false)
+			if (isMobileDevice()) {
+				document.querySelector('.mobile-input').classList.add('hide')
+			}
 			// bring back the game btns
 			this.btns.forEach( (el, index) => {
 				el.classList.remove('hide')
 			})
 			// clear out the user keypress dom indicator
 			this.playerLetter.innerHTML = ''
-			// use static instance to count and display the games
+			// use static instance to count and display the game count
 			this.gameCountRef.innerHTML = this.instance
 		}
 	}
 
 	// change attempts/guesses for the user via the difficulty
 	calcAttempts() {
-		let baseAttempts = 5
+		let baseAttempts = 6
 		let diffCalc = baseAttempts / this.difficulty
 
 		if (diffCalc === Infinity) {
-			diffCalc = 10
+			diffCalc = baseAttempts * 2
 		} else {
 			diffCalc = Math.ceil(diffCalc)
 		}
@@ -99,7 +100,7 @@ class Hangman {
 	checkValidKey(keypress) {
 		// only single/new letters go into ar, nothing else
 		if (!this.userInput.includes(keypress) && keypress.match(/[a-zA-Z]+/g) && keypress.length === 1 && this.state === 'playing') {
-			this.userInput.push(keypress.toLowerCase())
+			this.userInput.push(keypress[0].toLowerCase())
 			
 			// show to the player
 			this.playerLetter.innerHTML = `<p>Your guesses: ${this.userInput.join(', ').toUpperCase()}</p>`
@@ -115,17 +116,14 @@ class Hangman {
 					this.score++
 				})
 			} else {
-				// incorrect, decrease count
 				this.attempts--
 				this.animateTitle()
 			}
-			// check state after keypress
 		}
 
 		this.gameState()
-		// update the attemps message
+		// update the attempts message
 		document.querySelector('#attempts > p').innerHTML = this.stateMsg
-		//console.log(this.userInput)
 	}
 
 	// checks if the keypress is a correct guess, returns obj with the html, keyCode and key
@@ -164,7 +162,7 @@ class Hangman {
 		return Hangman.instances
   }
 
-  	// same as above but for score
+  // same as above but for score
 	static score() {
 		Hangman.finalScore = (Hangman.finalScore || 0) + 1
 		return Hangman.finalScore

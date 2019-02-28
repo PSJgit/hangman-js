@@ -56,7 +56,7 @@ body {
   #words {
     display: flex;
     justify-items: center;
-    min-height: 250px;
+    min-height: 120px;
     .letter {
       width: 100%;
       &:first-child{
@@ -112,25 +112,24 @@ body {
   }
 }
  
-
-
 button {
   display: block;
   text-align: center;
-  border: 3px solid $bodyColor_tertiary;
+  background: $fontColor_secondary;
+  color: $bodyColor_tertiary;
   text-transform: uppercase;
   padding: 20px;
   margin: 10px 0;
   cursor: pointer;
 }
 
-
-
-
 .hide {
-  display: none;
+  display: none !important;
 }
 
+.hidden {
+  opacity: 0;
+}
 
 
 
