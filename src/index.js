@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
 			if (activeGame !== undefined ) {
 				if (activeGame.state === 'playing') {
 					activeGame.checkValidKey(e.target.value)
-					e.target.value = ''
+					setTimeout(function() {
+						e.target.value = ''
+					}, 300)
 				}
 			}
 		})
