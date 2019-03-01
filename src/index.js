@@ -2,12 +2,11 @@
 /* Imports
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 import "@babel/polyfill"
-import render from './js/render.js'
+import render, {clearGameContainer} from './js/render.js'
 import Hangman from './js/hangman.js'
 import getRandomWord from './js/apiRequests.js'
 import wordlist from './js/wordSets.js'
 import {animateHelper, shuffle, isMobileDevice} from './js/utils.js'
-import {clearGameContainer} from './js/render.js'
 
 // style
 import "./scss/index.scss"
@@ -55,6 +54,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 		if (isMobileDevice() ) {
 			document.querySelector('.mobile-input').classList.remove('hide')
+			document.querySelector('.mobile-input').focus()
 		}
 	}
 
@@ -75,9 +75,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 			if (activeGame !== undefined ) {
 				if (activeGame.state === 'playing') {
 					activeGame.checkValidKey(e.target.value)
-					setTimeout(function() {
-						e.target.value = ''
-					}, 300);
+					e.target.value = ''
 				}
 			}
 		})

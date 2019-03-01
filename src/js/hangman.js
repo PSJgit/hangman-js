@@ -34,6 +34,7 @@ class Hangman {
 		this.playerLetter.innerHTML = ''
 		this.btns = document.querySelectorAll('#new-game, #difficulty')
 
+		console.warn('Current word is:', this.word)
 		// show the score/game count
 		if (this.instance === 1) {
 			this.gameCountRef.closest('.hide').classList.remove('hide')			
@@ -98,9 +99,10 @@ class Hangman {
 
 	// checks if the keypress can go into the array
 	checkValidKey(keypress) {
+
 		// only single/new letters go into ar, nothing else
 		if (!this.userInput.includes(keypress) && keypress.match(/[a-zA-Z]+/g) && keypress.length === 1 && this.state === 'playing') {
-			this.userInput.push(keypress[0].toLowerCase())
+			this.userInput.push(keypress.toLowerCase())
 			
 			// show to the player
 			this.playerLetter.innerHTML = `<p>Your guesses: ${this.userInput.join(', ').toUpperCase()}</p>`
