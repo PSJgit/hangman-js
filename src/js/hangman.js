@@ -100,13 +100,13 @@ class Hangman {
 	// checks if the keypress can go into the array
 	checkValidKey(keypress) {
 
-		// only single/new letters go into ar, nothing else
-		if (!this.userInput.includes(keypress) && keypress.match(/[a-zA-Z]+/g) && keypress.length === 1 && this.state === 'playing') {
+		// only single/new letters go into array, nothing else
+		if (!this.userInput.includes(keypress) && keypress.match(/[a-zA-Z]+/g) && this.state === 'playing') {
 			
 			this.userInput.push(keypress[0].toLowerCase())
 			
 			// check if the player is correct
-			let validKeyArr = this.isCorrectKey(keypress)
+			let validKeyArr = this.isCorrectKey(keypress.toLowerCase())
 
 			if (validKeyArr.length > 0) {
 				// correct, reveal letter
@@ -120,8 +120,8 @@ class Hangman {
 				this.animateTitle()
 			}
 
-			let userInputCopy = this.userInput.slice()
 			// show to the player
+			let userInputCopy = this.userInput.slice()
 			this.playerLetter.innerHTML = `<p>Your guesses: ${userInputCopy.join(', ').toUpperCase()}</p>`
 		}
 
