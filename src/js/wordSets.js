@@ -6,13 +6,13 @@ const wordlist = [
 
 	[
 		'Shape', 'Pursue', 'Permit', 'Frost', 'Agree', 'Airport', 'Generic', 'Good', 'Guide', 'Holder', 'Deep',
-		'House', 'Lover', 'Songs', 'Error', 'Visits', 'Pixel', 'Quad', 'Wondered', 'Rogue', 'Squawk', 'Waxy', 
+		'House', 'Lover', 'Songs', 'Error', 'Visits', 'Pixel', 'Quad', 'Wondered', 'Rogue', 'Squawk', 
 		'Friday', 'Button', 'Charts', 'Colours', 'Crushed', 'Farmer', 'Horror', 'Help','Mass', 'Opened', 'Football',
 		'Opinion', 'Summer', 'Sale', 'Form', 'Show', 'Sister', 'Solar', 'Happy', 'Added', 'Begun', 'Contact', 
 		'Cookie', 'Custom', 'Easily', 'Level', 'Penny', 'Rebel', 'Shirt', 'Tale', 'Take', 'Video', 'Waves', 'Comics', 
 		'Giant', 'Local', 'Pilot', 'Respect', 'Brief', 'Could', 'Great', 'Problem', 'Number', 'Which', 'Power',
 		'Time', 'Want', 'Leave', 'Place', 'Other', 'Brain', 'Accurate', 'Again', 'Bookkeeper', 'Barren', 'Letters', 'Looking',
-		'Deed', 'Balloon', 'Succeed', 'Tattoo', 'Wool', 'Wheel', 'Attack', 'Feel', 'Friend', 'Loose', 'Zookeeper', 'Nerve',
+		'Deed', 'Balloon', 'Succeed', 'Tattoo', 'Look', 'Wheel', 'Attack', 'Feel', 'Friend', 'Loose', 'Zookeeper', 'Nerve',
 		'Passenger', 'Resistance', 'Screen', 'Bass', 'Ballroom'
 	],
 	[
@@ -21,8 +21,8 @@ const wordlist = [
 		'Waxy', 'Effect', 'Possibillity', 'Zombie', 'Cultural', 'Idea', 'Contrast', 'Delegation', 'Easy',
 		'Levels', 'Networks', 'Looking', 'Proposal', 'Programme', 'Reserved', 'Welcomed', 'Argument', 'Biological', 'Carefully',
 		'Cheaper', 'Command', 'Complaint', 'Energy', 'Queen', 'Increases', 'Innocent', 'Newspaper', 'Observed', 
-		'Qualified', 'Respective', 'Creator', 'Auto', 'Rookie', 'Animal', 'Frozen', 'Secure', 'Window', 'Wisdom', 
-		'Opinion', 'Good', 'Buttons', 'Time', 'Letters', 'Penny', 'Opinion', 'Address', 'Balloon', 'Tattoo', 'Wheel',
+		'Qualified', 'Respective', 'Creator', 'Auto', 'Rookie', 'Animal', 'Frozen', 'Secure', 'Window', 'Wisdom', 'Good', 
+		'Buttons', 'Time', 'Letters', 'Penny', 'Address', 'Balloon', 'Tattoo', 'Wheel', 'Account', 'Bathroom', 
 		'Special', 'Affair', 'Annual', 'Attack', 'Bottom', 'Channel', 'Commit', 'Creation', 'Feeling', 'Football', 'Limit',
 		'Reference', 'Succeed', 'Wheels', 'Performance', 'Promising', 'Households', 'Buffalo', 'Unhappy', 'Toffee', 'Success',
 		'Ballroom', 'Radio'
