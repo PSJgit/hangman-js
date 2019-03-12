@@ -5,27 +5,26 @@
 const wordlist = [
 
 	[
-		'Shape', 'Pursue', 'Permit', 'Frost', 'Agree', 'Airport', 'Generic', 'Good', 'Guide', 'Holder', 'Deep',
-		'House', 'Lover', 'Songs', 'Error', 'Visits', 'Pixel', 'Quad', 'Wondered', 'Rogue', 'Squawk', 
-		'Friday', 'Button', 'Charts', 'Colours', 'Crushed', 'Farmer', 'Horror', 'Help','Mass', 'Opened', 'Football',
-		'Opinion', 'Summer', 'Sale', 'Form', 'Show', 'Sister', 'Solar', 'Happy', 'Added', 'Begun', 'Contact', 
+		'Shape', 'Succeeds', 'Permit', 'Reference', 'Agree', 'Airport', 'Generic', 'Good', 'Guide', 'Holder', 'Deep',
+		'House', 'Lover', 'Songs', 'Error', 'Visits', 'Cheaper', 'Bathroom', 'Wondered', 'Rogue', 'Delegation', 
+		'Friday', 'Button', 'Charts', 'Memento', 'Crushed', 'Farmer', 'Horror', 'Help','Mass', 'Opened', 'Football',
+		'Opinion', 'Summer', 'Sale', 'Form', 'Creator', 'Sister', 'Solar', 'Happy', 'Added', 'Begun', 'Contact', 
 		'Cookie', 'Custom', 'Easily', 'Level', 'Penny', 'Rebel', 'Shirt', 'Tale', 'Take', 'Video', 'Waves', 'Comics', 
-		'Giant', 'Local', 'Pilot', 'Respect', 'Brief', 'Could', 'Great', 'Problem', 'Number', 'Which', 'Power',
-		'Time', 'Want', 'Leave', 'Place', 'Other', 'Brain', 'Accurate', 'Again', 'Bookkeeper', 'Barren', 'Letters', 'Looking',
-		'Deed', 'Balloon', 'Succeed', 'Tattoo', 'Look', 'Wheel', 'Attack', 'Feel', 'Friend', 'Loose', 'Zookeeper', 'Nerve',
+		'Giant', 'Local', 'Letters', 'Respect', 'Brief', 'Could', 'Great', 'Problem', 'Newspaper', 'Which', 'Power',
+		'Time', 'Buttons', 'Leave', 'Place', 'Other', 'Brain', 'Accurate', 'Again', 'Bookkeeper', 'Barren', 'Letters', 'Looking',
+		'Deed', 'Balloon', 'Succeed', 'Tattoo', 'Look', 'Wheel', 'Attack', 'Feel', 'Friend', 'Loose', 'Zookeeper', 'Household',
 		'Passenger', 'Resistance', 'Screen', 'Bass', 'Ballroom'
 	],
 	[
-		'Raccoon', 'Bagpipes', 'Succeeds', 'Groups', 'Voodoo', 'Troubled', 'Judgment', 'Complete', 'Jukebox', 'Mixture',
-		'Memento', 'Mystify', 'Cookies', 'Oxygen', 'Pajamas', 'Pixel', 'Rhythmic', 'Rogue', 'Power', 'House', 'Torso',
-		'Waxy', 'Effect', 'Possibillity', 'Zombie', 'Cultural', 'Idea', 'Contrast', 'Delegation', 'Easy',
-		'Levels', 'Networks', 'Looking', 'Proposal', 'Programme', 'Reserved', 'Welcomed', 'Argument', 'Biological', 'Carefully',
-		'Cheaper', 'Command', 'Complaint', 'Energy', 'Queen', 'Increases', 'Innocent', 'Newspaper', 'Observed', 
-		'Qualified', 'Respective', 'Creator', 'Auto', 'Rookie', 'Animal', 'Frozen', 'Secure', 'Window', 'Wisdom', 'Good', 
-		'Buttons', 'Time', 'Letters', 'Penny', 'Address', 'Balloon', 'Tattoo', 'Wheel', 'Account', 'Bathroom', 
-		'Special', 'Affair', 'Annual', 'Attack', 'Bottom', 'Channel', 'Commit', 'Creation', 'Feeling', 'Football', 'Limit',
-		'Reference', 'Succeed', 'Wheels', 'Performance', 'Promising', 'Households', 'Buffalo', 'Unhappy', 'Toffee', 'Success',
-		'Ballroom', 'Radio'
+		'Raccoon', 'Succeeds', 'Permit', 'Frost', 'Agree', 'Airport', 'Generic', 'Good', 'Guide', 'Holder', 'Deep',
+		'House', 'Lover', 'Songs', 'Error', 'Visits', 'Cheaper', 'Bathroom', 'Wondered', 'Rogue', 'Delegation', 
+		'Friday', 'Button', 'Charts', 'Memento', 'Crushed', 'Farmer', 'Horror', 'Help','Mass', 'Opened', 'Football',
+		'Opinion', 'Summer', 'Sale', 'Form', 'Creator', 'Sister', 'Solar', 'Happy', 'Added', 'Begun', 'Contact', 
+		'Cookie', 'Custom', 'Easily', 'Level', 'Penny', 'Rebel', 'Shirt', 'Tale', 'Take', 'Video', 'Waves', 'Comics', 
+		'Giant', 'Local', 'Letters', 'Respect', 'Brief', 'Could', 'Great', 'Problem', 'Newspaper', 'Which', 'Power',
+		'Time', 'Buttons', 'Leave', 'Place', 'Other', 'Brain', 'Accurate', 'Again', 'Bookkeeper', 'Barren', 'Letters', 'Looking',
+		'Deed', 'Balloon', 'Succeed', 'Tattoo', 'Look', 'Wheel', 'Attack', 'Feel', 'Friend', 'Loose', 'Zookeeper', 'Household',
+		'Passenger', 'Resistance', 'Screen', 'Bass', 'Ballroom'
 	],
 	[
 		'Aggressive', 'Arguments', 'Childhood', 'Excessive', 'Croquet', 'Crypt', 'Dwarves', 'Fishhook', 'Jukebox', 'Kayak',
