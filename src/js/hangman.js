@@ -101,8 +101,8 @@ class Hangman {
 	checkValidKey(keypress) {
 
 		// only single/new letters go into array, nothing else
-		if (!this.userInput.includes(keypress) && keypress.match(/[a-zA-Z]+/g) && this.state === 'playing') {
-			
+		if (!this.userInput.includes(keypress) && keypress.match(/[a-zA-Z]+/g) && this.state === 'playing' && keypress.length === 1) {
+			console.warn(keypress.length)
 			this.userInput.push(keypress[0].toLowerCase())
 			
 			// check if the player is correct
